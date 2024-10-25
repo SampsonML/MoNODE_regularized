@@ -99,6 +99,7 @@ class MoNODE(nn.Module):
         #condition on
         in_data = X[:,:self.Tin]
         # if self.model == 'node':
+        # NOTE: make edits here removing the VAE
         if self.model == 'node' or self.model == 'hbnode':
             s0_mu, s0_logv = self.vae.encoder(in_data) # N,q
             z0 = self.vae.encoder.sample(s0_mu, s0_logv, L=L) # N,q or L,N,q
